@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RavenEyez — Coming Soon</title>
+<meta name="description" content="Streetwear redefined. Something different is on the way. New drop loading — stay tuned.">
+<meta name="theme-color" content="#0a0a0c">
+
+<meta property="og:title" content="RavenEyez — Coming Soon">
+<meta property="og:description" content="Streetwear redefined. Something different is on the way.">
+<meta property="og:image" content="images/hero-1600.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="images/page.png">
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #f5f4f0;
+
+    background-color: #0a0a0c;
+    background-repeat: no-repeat;
+    background-position: 62% 55%;
+    background-size: cover;
+    background-image:
+      linear-gradient(180deg, rgba(6,6,8,0.35) 0%, rgba(6,6,8,0) 20%, rgba(6,6,8,0) 55%, rgba(6,6,8,0.45) 100%),
+      image-set(
+        url("images/hero-640.jpg") 1x,
+        url("images/hero-1024.jpg") 1.5x,
+        url("images/hero-1600.jpg") 2x,
+        url("images/hero-1920.jpg") 3x
+      );
+  }
+
+  @media (min-width: 641px) {
+    body {
+      background-image:
+        linear-gradient(180deg, rgba(6,6,8,0.35) 0%, rgba(6,6,8,0) 20%, rgba(6,6,8,0) 55%, rgba(6,6,8,0.45) 100%),
+        image-set(
+          url("images/hero-1024.jpg") 1x,
+          url("images/hero-1600.jpg") 1.5x,
+          url("images/hero-1920.jpg") 2x
+        );
+    }
+  }
+
+  @media (min-width: 1025px) {
+    body {
+      background-image:
+        linear-gradient(180deg, rgba(6,6,8,0.35) 0%, rgba(6,6,8,0) 20%, rgba(6,6,8,0) 55%, rgba(6,6,8,0.45) 100%),
+        image-set(
+          url("images/hero-1600.jpg") 1x,
+          url("images/hero-1920.jpg") 1.5x
+        );
+    }
+  }
+
+  @media (min-width: 1601px) {
+    body {
+      background-image:
+        linear-gradient(180deg, rgba(6,6,8,0.35) 0%, rgba(6,6,8,0) 20%, rgba(6,6,8,0) 55%, rgba(6,6,8,0.45) 100%),
+        url("images/hero-1920.jpg");
+    }
+  }
+
+  main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 4px 18px rgba(255, 171, 77, 0.35); }
+    50%      { box-shadow: 0 6px 30px rgba(255, 171, 77, 0.65); }
+  }
+  @keyframes dotBlink {
+    0%, 80%, 100% { opacity: 0.2; }
+    40% { opacity: 1; }
+  }
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+
+  .top-row,
+  .loading,
+  h1,
+  .tagline-quote,
+  .subhead,
+  .features,
+  .bottom-row {
+    opacity: 0;
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+  .top-row    { animation-delay: 0.05s; }
+  .loading    { animation-delay: 0.2s; }
+  h1          { animation-delay: 0.35s; }
+  .tagline-quote {
+    animation:
+      fadeUp 0.8s ease-out 0.55s forwards,
+      glowPulse 2.6s ease-in-out 1.4s infinite;
+  }
+  .subhead    { animation-delay: 0.7s; }
+  .features   { animation-delay: 0.85s; }
+  .bottom-row { animation-delay: 1s; }
+
+  .top-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245, 244, 240, 0.7);
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .loading {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245, 244, 240, 0.7);
+  }
+  .loading .dot {
+    animation: dotBlink 1.4s ease-in-out infinite;
+  }
+  .loading .dot:nth-child(2) { animation-delay: 0.2s; }
+  .loading .dot:nth-child(3) { animation-delay: 0.4s; }
+
+  h1 {
+    font-size: clamp(2.6rem, 12vw, 6.5rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+  h1 .line2 {
+    display: block;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #f5f4f0;
+  }
+
+  .subhead {
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(245, 244, 240, 0.7);
+  }
+
+  .tagline-quote {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #1a1206;
+    background: linear-gradient(100deg, #ffd28a, #ffab4d);
+    padding: 9px 20px;
+    border-radius: 999px;
+  }
+
+  .features {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245, 244, 240, 0.7);
+  }
+  .features li::before {
+    content: "+ ";
+  }
+
+  .bottom-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245, 244, 240, 0.7);
+  }
+
+  .stay-tuned {
+    color: #f5f4f0;
+    letter-spacing: 0.16em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .top-row, .loading, h1, .tagline-quote, .subhead, .features, .bottom-row {
+      animation: none;
+      opacity: 1;
+    }
+    .loading .dot { animation: none; }
+  }
+
+  @media (min-width: 700px) {
+    main { text-align: left; }
+    .top-row { justify-content: space-between; }
+    .hero { align-items: flex-start; }
+    .features { justify-content: flex-start; }
+    .bottom-row {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+  <div class="top-row">
+    <div>Streetwear Redefined</div>
+    <div>Premium Quality &middot; Built Different</div>
+  </div>
+
+  <div class="hero">
+    <div class="loading">New Drop Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+
+    <h1>
+      <span class="line1">Coming</span>
+      <span class="line2">Soon</span>
+    </h1>
+
+    <p class="tagline-quote">The raven sees what's coming before anyone else.</p>
+
+    <p class="subhead">+ Something different is on the way.</p>
+
+    <ul class="features">
+      <li>Oversized Fit</li>
+      <li>Heavy Cotton</li>
+      <li>High Quality Print</li>
+      <li>Limited Drop</li>
+    </ul>
+  </div>
+
+  <div class="bottom-row">
+    <div>RavenEyez &copy; 2026</div>
+    <div class="stay-tuned">Stay Tuned. Stay Different.</div>
+    <div>MMXXVI &middot; See Beyond</div>
+  </div>
+
+</main>
+
+</body>
+</html>
